@@ -1,0 +1,38 @@
+name: Build DịchPhim AI Windows
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build React frontend
+        run: npx vite build
+      - name: Bundle Node server
+        run: npx esbuild server.ts --bundle --platform=node --format=esm --packages=external --outfile=server.js
+      - name: Bundle Electron main and preload
+        run: npm run build:desktop
+      - name: Package Windows installer
+        run: npx electron-builder --win --x64 --config electron-builder.json --publish never
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: DichPhimAI-Windows-Installer
+          path: dist/win-installer/DichPhimAI-Setup.exe
+          if-no-files-found: error
+          retention-days: 14
