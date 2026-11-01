@@ -232,8 +232,8 @@ async function createMainWindow(): Promise<void> {
   });
 
   const devUrl = process.env.ELECTRON_START_URL;
-  const builtIndexHtml = path.join(resourcesRoot, 'dist', 'index.html');
-  const localDistHtml = path.resolve(__dirname, '..', 'dist', 'index.html');
+  const builtIndexHtml = path.join(app.getAppPath(), 'dist', 'index.html');
+  const localDistHtml = path.resolve(__dirname, '..', '..', 'dist', 'index.html');
 
   if (devUrl) {
     await mainWindow.loadURL(devUrl);
@@ -244,6 +244,10 @@ async function createMainWindow(): Promise<void> {
   } else {
     await mainWindow.loadURL('http://127.0.0.1:3000');
   }
+
+  mainWindow.webContents.on('did-fail-load', (_event, code, description, url) => {
+    console.error('[DichPhimAI] Failed to load UI:', { code, description, url });
+  });
 
   mainWindow.on('closed', () => {
     mainWindow = null;
