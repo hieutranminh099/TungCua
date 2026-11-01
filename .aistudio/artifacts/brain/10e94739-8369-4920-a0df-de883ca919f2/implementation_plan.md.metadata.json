@@ -1,0 +1,6 @@
+{
+  "summary":  "Kế hoạch hoàn thiện toàn diện ứng dụng DịchPhim AI (tích hợp đầy đủ Giai đoạn 2 đến Giai đoạn 7): Hàng đợi đa luồng lưu bền vững SQLite, Xử lý video thực tế (tải video thật từ máy tính/điện thoại, trích âm thanh, nhận dạng & dịch ngữ cảnh 2 lượt bằng Gemini AI), Trình phát & Chỉnh sửa phụ đề song ngữ + Pinyin + Lồng tiếng TTS, Đồng bộ LAN 2 chiều bằng mã QR/6 số, Chế độ Giao diện Điện thoại một tay & Cài đặt ứng dụng PWA trực tiếp lên Máy tính và Điện thoại, kèm bộ mã nguồn đóng gói Desktop/Python/Flutter.",
+  "updatedAt":  "2026-10-31T17:23:17.383099299Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

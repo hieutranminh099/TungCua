@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "vn.dichphim.ai.desktop",
+  "productName": "DichPhimAI",
+  "copyright": "Copyright © 2026 DịchPhim AI",
+  "asar": true,
+  "directories": {
+    "output": "dist/win-installer",
+    "buildResources": "public"
+  },
+  "files": [
+    "dist/**/*",
+    "!dist/win-installer/**/*",
+    "!dist/*.exe",
+    "desktop/dist/**/*",
+    "server.js",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "backend",
+      "to": "backend",
+      "filter": [
+        "**/*",
+        "!**/__pycache__/**",
+        "!**/*.pyc",
+        "!**/*.db",
+        "!**/*.db-wal",
+        "!**/*.db-shm"
+      ]
+    },
+    {
+      "from": "prompts",
+      "to": "prompts"
+    }
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "public/pwa-512x512.png",
+    "artifactName": "DichPhimAI-Setup.exe"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "DịchPhim AI",
+    "artifactName": "DichPhimAI-Setup.exe"
+  }
+}

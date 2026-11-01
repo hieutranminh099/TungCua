@@ -1,0 +1,13 @@
+{
+  "devices": [
+    {
+      "id": "dev-mobile-1793468770598",
+      "deviceName": "iPhone 16 Pro",
+      "platform": "iOS",
+      "ipAddress": "127.0.0.1",
+      "lastSync": "Vừa ghép đôi thành công qua LAN",
+      "online": true,
+      "offlineDownloadedCount": 0
+    }
+  ]
+}

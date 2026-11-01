@@ -1,0 +1,6 @@
+{
+  "name": "DịchPhim AI",
+  "description": "Ứng dụng dịch video và phim từ tiếng Trung sang tiếng Việt tốc độ cao theo ngữ cảnh bằng AI, quản lý hàng đợi đa luồng, chỉnh sửa phụ đề song ngữ và đồng bộ Kho phim LAN/Mobile.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
