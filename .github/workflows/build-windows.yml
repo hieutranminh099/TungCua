@@ -2,6 +2,12 @@ name: Build DịchPhim AI Windows
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'vite.config.ts'
+      - 'desktop/**'
+      - '.github/workflows/build-windows.yml'
 
 permissions:
   contents: read
