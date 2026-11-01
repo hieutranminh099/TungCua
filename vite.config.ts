@@ -6,6 +6,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
   return {
+    // Electron loads the production UI over file://, so built assets must be relative.
+    base: './',
     plugins: [
       react(),
       tailwindcss(),
